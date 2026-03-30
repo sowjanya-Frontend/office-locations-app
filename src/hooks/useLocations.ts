@@ -17,5 +17,9 @@ export const useLocations = () => {
             .finally(() => setLoading(false));
     }, []);
 
-    return { locations, loading, error };
+    // Only return first 4 locations to show only 4 location as per requirement
+    const visibleLocations = locations.slice(0, 4);
+
+
+    return { locations: visibleLocations, loading, error };
 };

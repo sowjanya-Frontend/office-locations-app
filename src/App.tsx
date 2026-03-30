@@ -7,15 +7,19 @@ function App() {
 
   return (
     <main className="container">
-      <h1>Office Locations</h1>
+      <div className="locations-section">
+        <h2 className="locations-section_title">Office Locations</h2>
 
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
 
-      {!loading &&
-        locations.map((location) => (
-          <LocationCard key={location.name} {...location} />
-        ))}
+        <div className="locations-row">
+          {!loading &&
+            locations.map((location) => (
+              <LocationCard key={location.name} {...location} />
+            ))}
+        </div>
+      </div>
     </main>
   );
 }

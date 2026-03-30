@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $section-bg;
+    color: $text;
+    margin: 0;
+    padding: 0;
+}
+
+.locations-section {
+    text-align: center;
+    padding: 40px 20px;
+
+    &_title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: $text;
+    }
+}
+
+.locations-row {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    flex-wrap: wrap; // wrap for responsive
+}
