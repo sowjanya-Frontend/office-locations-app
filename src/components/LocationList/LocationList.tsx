@@ -1,5 +1,19 @@
-export const LocationList = () => {
+import type { LocationCardProps } from "../../types/location";
+import { LocationCard } from "../Location/LocationCard";
+
+type LocationListProps = {
+    locations: LocationCardProps[];
+};
+
+/**
+ * To render list of location cards
+ */
+export const LocationList = ({ locations }: LocationListProps) => {
     return (
-        <div>Location List Component</div>
-    )
-}
+        <div className="locations-row" role="list">
+            {locations.map((location) => (
+                <LocationCard key={location.name} {...location} />
+            ))}
+        </div>
+    );
+};

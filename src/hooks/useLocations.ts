@@ -9,6 +9,7 @@ export const useLocations = () => {
     const [locations, setLocations] = useState<Location[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [visibleCount, setVisibleCount] = useState(4);
 
     useEffect(() => {
         fetchOfficeLocations()
@@ -17,9 +18,16 @@ export const useLocations = () => {
             .finally(() => setLoading(false));
     }, []);
 
-    // Only return first 4 locations to show only 4 location as per requirement
-    const visibleLocations = locations.slice(0, 4);
+    const loadMoreLocations = () => {
+        setVisibleCount((prev) => prev + 4);
+    };
 
+    return {
+        locations: locations.slice(0, visibleCount),
+        hasMore: visibleCount < locations.length,
+        loadMoreLocations,
+        loading,
+        error,
+    };
 
-    return { locations: visibleLocations, loading, error };
 };
