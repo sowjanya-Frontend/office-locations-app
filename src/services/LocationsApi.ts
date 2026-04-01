@@ -14,6 +14,7 @@ export const fetchOfficeLocations = async (): Promise<Location[]> => {
     const locationsData: Location[] = await response.json();
 
     //Limit to 12 locations as per requirement.
-    return locationsData.slice(0, 12);
+    const TOTAL_LOCATION_LIMIT = 12;
+    return locationsData.slice(0, TOTAL_LOCATION_LIMIT);
 
 };

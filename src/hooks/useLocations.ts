@@ -9,7 +9,8 @@ export const useLocations = () => {
     const [locations, setLocations] = useState<Location[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [visibleCount, setVisibleCount] = useState(4);
+    const CARDS_COUNT = 4;
+    const [visibleCount, setVisibleCount] = useState(CARDS_COUNT);
 
     useEffect(() => {
         fetchOfficeLocations()
@@ -20,11 +21,11 @@ export const useLocations = () => {
 
 
     const loadMoreLocations = useCallback(() => {
-        setVisibleCount((prev) => prev + 4);
+        setVisibleCount((prev) => prev + CARDS_COUNT);
     }, [])
 
     // const visibleLocations = useMemo(() => {
-    //     locations.slice(0, visibleCount)
+    //     return locations.slice(0, visibleCount);
     // }, [locations, visibleCount])
 
     return {
