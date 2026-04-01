@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchOfficeLocations } from "../services/LocationsApi";
 import type { Location } from "../types/location";
 
@@ -18,9 +18,14 @@ export const useLocations = () => {
             .finally(() => setLoading(false));
     }, []);
 
-    const loadMoreLocations = () => {
+
+    const loadMoreLocations = useCallback(() => {
         setVisibleCount((prev) => prev + 4);
-    };
+    }, [])
+
+    // const visibleLocations = useMemo(() => {
+    //     locations.slice(0, visibleCount)
+    // }, [locations, visibleCount])
 
     return {
         locations: locations.slice(0, visibleCount),
