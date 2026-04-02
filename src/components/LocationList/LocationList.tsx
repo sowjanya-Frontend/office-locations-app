@@ -15,5 +15,14 @@ export const LocationList = ({ locations }: LocationListProps) => {
                 <LocationCard key={location.name} {...location} />
             ))}
         </div>
+
+        // <ul className="locations-row">
+        //     {locations.map((location) => (
+        //         <li key={`${location.name}-${location.postcode}`}>
+        //             <LocationCard {...location} />
+        //         </li>
+        //     ))}
+        // </ul>
+
     );
 };

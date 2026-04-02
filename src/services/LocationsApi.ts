@@ -6,6 +6,7 @@ import type { Location } from "../types/location";
 export const fetchOfficeLocations = async (): Promise<Location[]> => {
 
     const response = await fetch("/afhwm/api/v1/locations");
+    // const response = await fetch("http://localhost:5173/locations.json");
 
     if (!response.ok) {
         throw new Error("Failed to fetch the locations")

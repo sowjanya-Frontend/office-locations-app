@@ -7,7 +7,7 @@ import "./LocationCard.scss"
 export const LocationCard = ({ name, address1, address2, city, postcode }: LocationCardProps) => {
 
     return (
-        <article className="location-card" tabIndex={0} aria-label={`Office location: ${name}, ${city}`}>
+        <article className="location-card">
             <h3 className="location-card_title">{name}</h3>
             <div className="location-card_address">
                 <p>{address1}</p>
